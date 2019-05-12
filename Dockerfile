@@ -1,24 +1,18 @@
 FROM debian:sid-slim
-MAINTAINER Sylvain Rousseau <thisirs@gmail.com>
+
 MAINTAINER Julien Jerphanion <git@jjerphan.xyz>
 
 # Recreate non-existent directories
 RUN mkdir -p /usr/share/man/man1 /usr/share/man/man2 /usr/share/man/man3 /usr/share/man/man4 /usr/share/man/man5 /usr/share/man/man6 /usr/share/man/man7 /usr/share/man/man8
 
 RUN apt-get update
+
+# Full Texlive distribution
 RUN apt-get install -y --no-install-recommends \
         texlive-full \
         biber
 
-RUN apt-get install -y --no-install-recommends \
-        python-matplotlib \
-        python-numpy \
-        python-pygments \
-        python-scipy \
-        python3-matplotlib \
-        python3-numpy \
-        python3-scipy
-
+# R dependencies
 RUN apt-get install -y --no-install-recommends \
         r-base \
         r-cran-knitr \
@@ -38,17 +32,28 @@ RUN apt-get install -y --no-install-recommends \
         python3-html5-parser \
         python3-lxml
 
+# PlantuUML dependencies
 RUN apt-get install -y --no-install-recommends \
-        default-jre
-
-RUN apt-get install -y --no-install-recommends \
+        default-jre \
         plantuml \
         graphviz
 
+# Utils
 RUN apt-get install -y --no-install-recommends \
         git \
         make \
         curl
+
+# Installing pip
+RUN apt-get install -y --no-install-recommends \
+        python-matplotlib \
+        python-numpy \
+        python-scipy \
+        python3-pip
+
+# Python 3 utils
+RUN pip3 install \
+        pygments
 
 # Locale
 RUN apt-get install -y locales
