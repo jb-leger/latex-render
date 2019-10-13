@@ -5,6 +5,8 @@ MAINTAINER Sylvain Rousseau <thisirs@gmail.com>
 RUN mkdir -p /usr/share/man/man1 /usr/share/man/man2 /usr/share/man/man3 /usr/share/man/man4 /usr/share/man/man5 /usr/share/man/man6 /usr/share/man/man7 /usr/share/man/man8
 
 RUN apt-get update
+
+# Full Texlive distribution
 RUN apt-get install -y --no-install-recommends \
         texlive-full \
         biber \
@@ -12,31 +14,43 @@ RUN apt-get install -y --no-install-recommends \
         fonts-texgyre \
         fonts-liberation
 
-RUN apt-get install -y --no-install-recommends \
-        python-matplotlib \
-        python-numpy \
-        python-pygments \
-        python-scipy \
-        python3-matplotlib \
-        python3-numpy \
-        python3-scipy
-
+# R dependencies
 RUN apt-get install -y --no-install-recommends \
         r-base \
         r-cran-knitr \
         r-cran-xtable
 
-# NF26
+# Conversion tools
 RUN apt-get install -y --no-install-recommends \
         inkscape \
-        pandoc \
+        pandoc
+
+# PlantuUML dependencies
+RUN apt-get install -y --no-install-recommends \
         default-jre \
         plantuml \
         graphviz
 
+# Utils
 RUN apt-get install -y --no-install-recommends \
         git \
-        make
+        make \
+        curl
+
+# Installing pip
+RUN apt-get install -y --no-install-recommends \
+        python-matplotlib \
+        python-numpy \
+        python-scipy \
+        python3-pip
+
+# Python 3 utils
+RUN pip3 install \
+        pygments \
+        matplotlib \
+        numpy \
+        scipy
+        
 
 # Locale
 RUN apt-get install -y locales
