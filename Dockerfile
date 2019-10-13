@@ -37,8 +37,9 @@ RUN apt-get install -y --no-install-recommends \
         make \
         curl
 
-# Installing pip
+# Installing pip and python-legacy modules
 RUN apt-get install -y --no-install-recommends \
+        python-pygments \
         python-matplotlib \
         python-numpy \
         python-scipy \
