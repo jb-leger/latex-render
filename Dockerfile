@@ -9,7 +9,8 @@ RUN apt-get install -y --no-install-recommends \
         texlive-full \
         biber \
         fonts-opendyslexic \
-        fonts-texgyre
+        fonts-texgyre \
+        fonts-liberation
 
 RUN apt-get install -y --no-install-recommends \
         python-matplotlib \
@@ -25,24 +26,11 @@ RUN apt-get install -y --no-install-recommends \
         r-cran-knitr \
         r-cran-xtable
 
-# epub, html version
+# NF26
 RUN apt-get install -y --no-install-recommends \
-        calibre \
-        dvipng \
-        fonts-liberation \
-        imagemagick \
         inkscape \
-        ruby \
-        scour \
         pandoc \
-        tidy \
-        python3-html5-parser \
-        python3-lxml
-
-RUN apt-get install -y --no-install-recommends \
-        default-jre
-
-RUN apt-get install -y --no-install-recommends \
+        default-jre \
         plantuml \
         graphviz
 
