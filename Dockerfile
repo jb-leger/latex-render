@@ -35,7 +35,9 @@ RUN apt-get install -y --no-install-recommends \
 RUN apt-get install -y --no-install-recommends \
         git \
         make \
-        curl
+        curl \
+        sshpass \
+        rsync
 
 # Installing pip and python-legacy modules
 RUN apt-get install -y --no-install-recommends \
