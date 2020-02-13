@@ -35,14 +35,13 @@ RUN apt-get install -y --no-install-recommends \
 RUN apt-get install -y --no-install-recommends \
         git \
         make \
-        curl
+        curl \
+        sshpass \
+        openssh-client \
+        rsync
 
 # Installing pip and python-legacy modules
 RUN apt-get install -y --no-install-recommends \
-        python-pygments \
-        python-matplotlib \
-        python-numpy \
-        python-scipy \
         python3-pip
 
 # Python 3 utils
