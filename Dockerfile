@@ -40,16 +40,13 @@ RUN apt-get install -y --no-install-recommends \
         openssh-client \
         rsync
 
-# Installing pip and python-legacy modules
+# Installing pip and python modules
 RUN apt-get install -y --no-install-recommends \
-        python3-pip
-
-# Python 3 utils
-RUN pip3 install \
-        pygments \
-        matplotlib \
-        numpy \
-        scipy
+        python3-pip \
+        python3-pygments \
+        python3-numpy \
+        python3-scipy \
+        python3-matplotlib
         
 
 # Locale
