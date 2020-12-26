@@ -12,8 +12,7 @@ RUN apt-get install -y --no-install-recommends \
         biber \
         fonts-opendyslexic \
         fonts-texgyre \
-        fonts-liberation \
-        latexdiff
+        fonts-liberation
 
 # R dependencies
 RUN apt-get install -y --no-install-recommends \
@@ -48,7 +47,11 @@ RUN apt-get install -y --no-install-recommends \
         python3-numpy \
         python3-scipy \
         python3-matplotlib
-        
+
+# latexdiff
+RUN apt-get install -y libalgorithm-diff-perl
+RUN curl https://raw.githubusercontent.com/ftilmann/latexdiff/master/latexdiff --output /usr/local/bin/latexdiff
+RUN chmod +x /usr/local/bin/latexdiff
 
 # Locale
 RUN apt-get install -y locales
