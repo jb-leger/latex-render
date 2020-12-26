@@ -12,7 +12,8 @@ RUN apt-get install -y --no-install-recommends \
         biber \
         fonts-opendyslexic \
         fonts-texgyre \
-        fonts-liberation
+        fonts-liberation \
+        latexdiff
 
 # R dependencies
 RUN apt-get install -y --no-install-recommends \
